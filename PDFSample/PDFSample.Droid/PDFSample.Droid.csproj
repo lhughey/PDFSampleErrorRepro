@@ -17,6 +17,7 @@
         <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
         <TargetFrameworkVersion>v13.0</TargetFrameworkVersion>
         <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <DebugSymbols>true</DebugSymbols>
@@ -46,10 +47,19 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012"/>
+        <PackageReference Include="Plugin.CurrentActivity" Version="2.1.0.4" />
+        <PackageReference Include="ReactiveUI.Fody" Version="19.5.41" />
+        <PackageReference Include="ReactiveUI.XamForms" Version="19.5.41" />
+        <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
+        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2622" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="DependencyServices\DependencyServices.cs" />
+        <Compile Include="DependencyServices\FileHelper.cs" />
+        <Compile Include="DependencyServices\PDFConverter.cs" />
         <Compile Include="MainActivity.cs"/>
+        <Compile Include="Native\PdfLayoutResultCallback.cs" />
+        <Compile Include="Native\WebViewCallBack.cs" />
         <Compile Include="Resources\Resource.Designer.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
