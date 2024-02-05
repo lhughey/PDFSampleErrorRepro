@@ -8,9 +8,19 @@
         <local:MainPageViewModel/>
     </ContentPage.BindingContext>
     <StackLayout>
-        <Button Text="Create PDf" VerticalOptions="Start" Command="{Binding CreatePDFCommand}" BackgroundColor="Red" WidthRequest="250" HorizontalOptions="Center" Margin="0,40,0,30"></Button>
+        <Button Text="Create PDf" 
+                VerticalOptions="Start" 
+                Command="{Binding CreatePDFCommand}" 
+                BackgroundColor="Red" 
+                TextColor="White"
+                WidthRequest="250" 
+                HorizontalOptions="Center" 
+                Margin="0,40,0,0"></Button>
         
-        <Label HorizontalOptions="Center" Margin="20,0,20,20" Text="The PDF created from the button above should look the same as the content in the webview below. They were created from the same html. Play close attention to the table content. The table content in the PDF has one line per page"></Label>
+        <Label HorizontalOptions="Center" 
+               Margin="20,0,20,10" 
+               Text="App is Android only! The PDF created from the button above should look the same as the content in the webview below. They were created from the same html. Play close attention to the table content. The table content in the PDF has one line per page. You may need to scroll the webview"
+               ></Label>
         <Frame BorderColor="Green">
             <WebView x:Name="webview" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="1000">
                 <WebView.Source>
