@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
+using System.Threading.Tasks;
 using Android.Print;
 using Android.Webkit;
 using Connect.Model;
@@ -87,6 +89,17 @@ namespace Connect.Droid.Native
                     //HACK: add this delay as the issue with the PDF generation seems to be some type of race condition. 
                     Task.Delay(3500);
                     adapter.OnLayout(null, attributes, null, layoutResultCallback, null);
+
+                    Task.Delay(1000);
+                    
+                    System.Text.StringBuilder htmlbody = new System.Text.StringBuilder();
+                    htmlbody.AppendFormat("Please find the attached dashboard report in this email.<br/>");
+                    htmlbody.AppendFormat("Evaluator name: {0}, {1}<br/>", "PDF ", " Test");
+
+                    htmlbody.AppendFormat("Generated on: {0}<br/>", DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture));
+                    string messageBody = htmlbody.ToString();                    
+                    DependencyService.Get<IDependencyServices>().SendEmail(messageBody, "Dashboard PDF report");
+                    //isPDFGenerated = false;
                 }
             }
             catch (Exception ex)

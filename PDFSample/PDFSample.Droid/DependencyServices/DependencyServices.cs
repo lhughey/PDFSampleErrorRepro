@@ -464,7 +464,8 @@ namespace PDFSample.Droid.DependencyServices
         {
             //For dummy file path creation.
             //return System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            return Android.App.Application.Context.GetExternalFilesDir(null).AbsolutePath;
+            var loc = Android.App.Application.Context.GetExternalFilesDir(null).AbsolutePath;
+            return loc;
         }
         
 

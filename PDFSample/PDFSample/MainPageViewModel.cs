@@ -12,11 +12,18 @@ namespace PDFSample
 {
     public class MainPageViewModel: ReactiveObject
     {
-        
+        public string HtmlString { get; set; }
         private PDFToHtml PDFToHtml { get; set; }
         public ReactiveCommand<Unit, Unit> CreatePDFCommand { get; set; }
         public MainPageViewModel()
         {
+            //HtmlSource = new HtmlWebViewSource();
+
+            var testText = GetPDFHtmlBody();
+            //HtmlSource.Html  = testText;
+
+           HtmlString = testText;
+            
             CreatePDFCommand = ReactiveCommand.CreateFromTask(CreatePDFCommandExecute);
             CreatePDFCommand.Subscribe(c=>
             {
@@ -47,6 +54,7 @@ namespace PDFSample
                 PDFToHtml = new PDFToHtml(true, "Dashboard");
                 //this.BindingContext = PDFToHtml;
                 PDFToHtml.HTMLString = text;
+               
             }
             catch (Exception createPDFException)
             {

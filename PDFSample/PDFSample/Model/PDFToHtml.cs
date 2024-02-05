@@ -136,13 +136,15 @@ namespace Connect.Model
                 {
                     temppdffilePath = Path.Combine(DependencyService.Get<IFileHelper>().DocumentFilePath, "Onboard Connect");
                     pdffilepath = Path.Combine(temppdffilePath, "Dashboard.pdf");
-                    pdfName = string.Format("Dashboard-{1}_{0}.PDF", "Blake ", "Tester");
+                    //pdfName = string.Format("Dashboard-{1}_{0}.PDF", "Blake", "Tester");
+                    pdfName = "Dashboard.pdf";
                 }
                 else
                 {
                     temppdffilePath = Path.Combine(DependencyService.Get<IFileHelper>().DocumentFilePath, "temp");
                     pdffilepath = Path.Combine(temppdffilePath, "Evaluation_History.pdf");
-                    pdfName = string.Format("Dashboard-{1}_{0}.PDF", "Blake ", "Tester");
+                    //pdfName = string.Format("Dashboard-{1}_{0}.PDF", "Blake", "Tester");
+                    pdfName = "Evaluation_History.pdf";
                 }               
                 pdfFileWithPageNumber = System.IO.Path.Combine(temppdffilePath, pdfName);
             }

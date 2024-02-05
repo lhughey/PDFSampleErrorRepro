@@ -8,9 +8,18 @@
         <local:MainPageViewModel/>
     </ContentPage.BindingContext>
     <StackLayout>
-        <Button Text="Create PDf" VerticalOptions="CenterAndExpand" Command="{Binding CreatePDFCommand}">
-            
-        </Button>
+        <Button Text="Create PDf" VerticalOptions="Start" Command="{Binding CreatePDFCommand}" BackgroundColor="Red" WidthRequest="250" HorizontalOptions="Center" Margin="0,40,0,30"></Button>
+        
+        <Label HorizontalOptions="Center" Margin="20,0,20,20" Text="The PDF created from the button above should look the same as the content in the webview below. They were created from the same html. Play close attention to the table content. The table content in the PDF has one line per page"></Label>
+        <Frame BorderColor="Green">
+            <WebView x:Name="webview" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="1000">
+                <WebView.Source>
+                    <HtmlWebViewSource Html="{Binding HtmlString}" />
+                </WebView.Source>
+            </WebView> 
+            <!-- Source="{Binding HtmlSource}"  -->
+        </Frame>
+        <!-- <Label Text="{Binding HtmlString}"></Label> -->
     </StackLayout>
 
 </ContentPage>

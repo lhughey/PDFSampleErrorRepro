@@ -8,11 +8,7 @@ namespace PDFSample
         public MainPage()
         {
             InitializeComponent();
-        }
-
-        private void Button_OnClicked(object sender, EventArgs e)
-        {
-            
+           
         }
     }
 }

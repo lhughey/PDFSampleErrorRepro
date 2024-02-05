@@ -73,12 +73,17 @@
         <AndroidResource Include="Resources\layout\Toolbar.axml"/>
         <AndroidResource Include="Resources\values\styles.xml"/>
         <AndroidResource Include="Resources\values\colors.xml"/>
+        <AndroidResource Include="Resources\xml\provider_paths.xml" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\PDFSample\PDFSample.csproj">
             <Project>{4D28FAEC-BB68-4BD0-A8A7-1F057C8A5BBB}</Project>
             <Name>PDFSample</Name>
         </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <AndroidAsset Include="Assets\LearnLogo.png" />
+      <AndroidAsset Include="Assets\OnLogo.png" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets"/>
 </Project>
